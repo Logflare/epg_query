@@ -1,8 +1,11 @@
 defmodule EpgQueryTest do
   use ExUnit.Case
-  doctest EpgQuery
 
-  test "greets the world" do
-    assert EpgQuery.hello() == :world
+  test "parses a simple statement" do
+    assert {:ok,
+            %{
+              "stmts" => [_ | _],
+              "version" => _
+            }} = EpgQuery.parse("select * from some_table")
   end
 end

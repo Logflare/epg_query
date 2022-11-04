@@ -1,24 +1,22 @@
 defmodule EpgQuery do
-  alias Elixir.EpgQuery.Port
-
-  @moduledoc """
-  Documentation for `EpgQuery`.
-  """
+  alias __MODULE__.Port
+  @moduledoc false
 
   @doc """
-  Hello world.
+  Parses an sql statement.
 
-  ## Examples
+  ## Example
 
-      iex> EpgQuery.hello()
-      :world
-
+      iex> EpgQuery.parse("select * from some_table")
+      %{
+        "stmts"=> [...],
+        "version" => ...
+      }
   """
   @spec parse(String.t()) :: {:ok, map()} | {:error, String.t()}
   def parse(query) do
-    case Port.parse(query) do
-      {:ok, json} -> Jason.decode(json)
-      other -> other
+    with {:ok, json} <- Port.parse(query) do
+      Jason.decode(json)
     end
   end
 end
