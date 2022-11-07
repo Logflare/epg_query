@@ -4,11 +4,9 @@ defmodule EpgQuery.MixProject do
   def project do
     [
       app: :epg_query,
-      version: "0.1.2",
+      version: "0.1.3",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      compilers: [:rustler] ++ Mix.compilers(),
-      rustler_crates: [epgquery_port: []],
       deps: deps()
     ]
   end
