@@ -35,7 +35,7 @@ pub mod ast;
 mod bindings;
 mod error;
 mod query;
-mod serde;
+pub mod serde;
 mod str;
 
 pub use error::*;

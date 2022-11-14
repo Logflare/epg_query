@@ -2,7 +2,7 @@ use std::fmt;
 
 use serde::de::{Deserializer, Error, SeqAccess, Visitor};
 
-pub(crate) fn deserialize_node_array<'de, D>(
+pub fn deserialize_node_array<'de, D>(
     deserializer: D,
 ) -> Result<Vec<crate::ast::Node>, D::Error>
 where

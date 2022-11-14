@@ -19,4 +19,11 @@ defmodule EpgQuery do
       Jason.decode(json)
     end
   end
+  def to_string(statements) when is_list(statements) do
+    %{
+      values: Enum.map(statements, &(&1["stmt"]))
+    }
+    |> Jason.encode!()
+    |> Port.to_string()
+  end
 end

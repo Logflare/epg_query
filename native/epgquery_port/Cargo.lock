@@ -120,6 +120,8 @@ version = "0.1.0"
 dependencies = [
  "pg_parse",
  "rustler",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]

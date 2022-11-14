@@ -3,4 +3,5 @@ defmodule EpgQuery.Port do
 
   # When your NIF is loaded, it will override this function.
   def parse(_query), do: :erlang.nif_error(:nif_not_loaded)
+  def to_string(_query), do: :erlang.nif_error(:nif_not_loaded)
 end
